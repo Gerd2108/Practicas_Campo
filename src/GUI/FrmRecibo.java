@@ -171,10 +171,10 @@ public class FrmRecibo extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(848, 744));
+        setSize(new java.awt.Dimension(848, 772));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -268,25 +268,26 @@ public class FrmRecibo extends javax.swing.JFrame {
                 try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
 
                     try {
-
                         InputStream in = getClass().getResourceAsStream("/media/logohd.jpg");
                         if (in != null) {
-
                             byte[] bytes = in.readAllBytes();
-
                             PDImageXObject pdImage = PDImageXObject.createFromByteArray(document, bytes, "logo");
 
-                            contentStream.drawImage(pdImage, 50, 730, 150, 60);
+                            float anchoLogo = 140f;
+                            float escala = anchoLogo / pdImage.getWidth();
+                            float altoLogo = pdImage.getHeight() * escala;
+
+                            contentStream.drawImage(pdImage, 40, 750, anchoLogo, altoLogo);
                             in.close();
                         }
                     } catch (Exception ex) {
-                        System.err.println("No se pudo cargar el logo: " + ex.getMessage());
+                        System.err.println("Error logo: " + ex.getMessage());
                     }
 
                     contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.COURIER), 10);
                     contentStream.beginText();
 
-                    contentStream.newLineAtOffset(50, 700);
+                    contentStream.newLineAtOffset(40, 720);
                     contentStream.setLeading(12f);
 
                     String[] lineas = texto.split("\n");
@@ -321,7 +322,12 @@ public class FrmRecibo extends javax.swing.JFrame {
                     if (in != null) {
                         byte[] bytes = in.readAllBytes();
                         PDImageXObject pdImage = PDImageXObject.createFromByteArray(document, bytes, "logo");
-                        contentStream.drawImage(pdImage, 50, 730, 150, 60);
+
+                        float anchoLogo = 140f;
+                        float escala = anchoLogo / pdImage.getWidth();
+                        float altoLogo = pdImage.getHeight() * escala;
+
+                        contentStream.drawImage(pdImage, 40, 750, anchoLogo, altoLogo);
                         in.close();
                     }
                 } catch (Exception ex) {
@@ -331,7 +337,7 @@ public class FrmRecibo extends javax.swing.JFrame {
                 contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.COURIER), 10);
                 contentStream.beginText();
 
-                contentStream.newLineAtOffset(50, 700);
+                contentStream.newLineAtOffset(40, 720);
                 contentStream.setLeading(12f);
 
                 String[] lineas = text.split("\n");

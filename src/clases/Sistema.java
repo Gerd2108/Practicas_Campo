@@ -49,24 +49,35 @@ public class Sistema {
 
     //Cabecera para PDFs
     public void agregarCabecera(PDDocument doc, PDPageContentStream content, String titulo, String nombreUsuario) throws IOException {
+
+        float margenIzquierdoLogo = 40;
+        float anchoLogo = 120f;
+        float margenIzquierdoTexto = 170;
+
         try {
             java.io.InputStream is = getClass().getResourceAsStream("/media/logohd.jpg");
             if (is != null) {
-                PDImageXObject logo = PDImageXObject.createFromByteArray(doc, is.readAllBytes(), "logo");
-                content.drawImage(logo, 40, 700, 80, 60);
+                byte[] imageBytes = is.readAllBytes();
+                PDImageXObject logo = PDImageXObject.createFromByteArray(doc, imageBytes, "logo");
+
+                float escala = anchoLogo / logo.getWidth();
+                float altoCalculado = logo.getHeight() * escala;
+
+                content.drawImage(logo, margenIzquierdoLogo, 695, anchoLogo, altoCalculado);
             }
         } catch (Exception e) {
+            System.err.println("Error logo: " + e.getMessage());
         }
 
         content.beginText();
         content.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA_BOLD), 16);
-        content.newLineAtOffset(130, 740);
+        content.newLineAtOffset(margenIzquierdoTexto, 740);
         content.showText(titulo);
         content.endText();
 
         content.beginText();
         content.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA), 10);
-        content.newLineAtOffset(130, 725);
+        content.newLineAtOffset(margenIzquierdoTexto, 725);
         content.showText("DAL ESTRUCTURAS S.A.C.  |  RUC: 20550267005");
         content.endText();
 
@@ -74,12 +85,12 @@ public class Sistema {
         String fechaActual = sdf.format(new java.util.Date());
 
         content.beginText();
-        content.newLineAtOffset(130, 710);
+        content.newLineAtOffset(margenIzquierdoTexto, 710);
         content.showText("Generado por: " + nombreUsuario);
         content.endText();
 
         content.beginText();
-        content.newLineAtOffset(400, 710);
+        content.newLineAtOffset(420, 710);
         content.showText("Fecha: " + fechaActual);
         content.endText();
 
