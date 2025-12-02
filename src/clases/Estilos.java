@@ -147,7 +147,7 @@ public class Estilos {
         scroll.setBorder(BorderFactory.createLineBorder(COLOR_BORDER, 1));
         scroll.setBackground(COLOR_WHITE);
     }
-    
+
     public static void cargarEstilosGlobales() {
         try {
 
@@ -171,5 +171,14 @@ public class Estilos {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void estiloCheckBox(javax.swing.JCheckBox chk) {
+        chk.setFont(FONT_NORMAL);
+        chk.setForeground(COLOR_TEXT);
+        chk.setBackground(COLOR_FONDO);
+        chk.setFocusPainted(false);
+        chk.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
     }
 }

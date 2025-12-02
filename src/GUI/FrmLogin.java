@@ -89,6 +89,8 @@ public class FrmLogin extends javax.swing.JFrame {
 
         clases.Estilos.estiloBoton(btnIngresar, true);
         clases.Estilos.estiloBoton(btnMostrarClave, false);
+        
+        clases.Estilos.estiloCheckBox(chkInvitado);
 
         jScrollPane1.getViewport().setBackground(clases.Estilos.COLOR_PRIMARY);
         jScrollPane1.setBorder(null);
