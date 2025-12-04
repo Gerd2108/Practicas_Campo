@@ -6,17 +6,10 @@ package GUI;
 
 import java.awt.Desktop;
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 import clases.Sistema;
 import clases.Usuario;
-import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.table.TableRowSorter;
@@ -344,11 +337,11 @@ public class FrmEncargado extends javax.swing.JFrame {
         );
 
         if (opcion == javax.swing.JOptionPane.YES_OPTION) {
-            // AVISAMOS QUE ES UN CIERRE DE SESIÓN, NO UN REGRESO
+
             this.cerrandoSesion = true;
 
             sistema.guardarDatos();
-            dispose(); // Esto disparará el evento de cierre
+            dispose();
 
             FrmLogin login = new FrmLogin(this.sistema);
             login.setVisible(true);

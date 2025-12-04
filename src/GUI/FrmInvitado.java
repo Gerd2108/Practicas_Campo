@@ -6,7 +6,6 @@ package GUI;
 
 import clases.Sistema;
 import clases.Usuario;
-import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
@@ -33,7 +32,6 @@ public class FrmInvitado extends javax.swing.JFrame {
         if (historial.isEmpty()) {
             return "NINGUNO";
         }
-        // Obtenemos el último registro de la lista
         String ultimo = historial.get(historial.size() - 1);
 
         if (ultimo.startsWith("ENTRADA")) {
@@ -288,18 +286,18 @@ public class FrmInvitado extends javax.swing.JFrame {
 
         if (estado.equals("ENTRADA")) {
             JOptionPane.showMessageDialog(this,
-                    "Ya registraste tu ingreso. Debes marcar SALIDA antes.",
+                    "Ya registraste tu ingreso. Debes marcar Salida antes.",
                     "Acción Bloqueada", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        if (JOptionPane.showConfirmDialog(this, "¿Registrar ingreso ahora?", "Confirmar Entrada", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+        if (JOptionPane.showConfirmDialog(this, "¿Registrar Entrada ahora?", "Confirmar Entrada", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             sistema.registrarAsistencia(usuarioLogueado, "ENTRADA (Invitado)");
             sistema.guardarDatos();
 
             String hora = new SimpleDateFormat("HH:mm:ss").format(new Date());
             JOptionPane.showMessageDialog(this,
-                    "ENTRADA REGISTRADA A LAS " + hora,
+                    "Entrada Registrada a las " + hora,
                     "Registro Exitoso",
                     JOptionPane.INFORMATION_MESSAGE);
         }
@@ -310,18 +308,18 @@ public class FrmInvitado extends javax.swing.JFrame {
 
         if (!estado.equals("ENTRADA")) {
             JOptionPane.showMessageDialog(this,
-                    "No tienes un ingreso activo. Marca ENTRADA primero.",
+                    "No tienes un ingreso activo. Marca Entrada primero.",
                     "Aviso del Sistema", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        if (JOptionPane.showConfirmDialog(this, "¿Registrar salida ahora?", "Confirmar Salida", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+        if (JOptionPane.showConfirmDialog(this, "¿Registrar Salida ahora?", "Confirmar Salida", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             sistema.registrarAsistencia(usuarioLogueado, "SALIDA (Invitado)");
             sistema.guardarDatos();
 
             String hora = new SimpleDateFormat("HH:mm:ss").format(new Date());
             JOptionPane.showMessageDialog(this,
-                    "SALIDA REGISTRADA A LAS " + hora + "\n¡Gracias por tu apoyo!",
+                    "Salida Registrada a las " + hora + "\n¡Gracias por tu apoyo!",
                     "Registro Exitoso",
                     JOptionPane.INFORMATION_MESSAGE);
         }

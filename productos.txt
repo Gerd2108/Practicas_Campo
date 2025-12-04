@@ -1,6 +1,8 @@
-103,Lona,Decoración,200.0,40
-104,Tubo,Estructuras,100.0,72
-105,Base,Estructuras,290.0,31
-106,Triangulo,Estructuras,120.0,24
+103,Lona,Decoración,200.0,42
+104,Tubo,Estructuras,100.0,69
+105,Base,Estructuras,290.0,16
+106,Triangulo,Estructuras,120.0,1
 107,Cubo,Estructuras,123.0,79
-108,Cuadrado,Estructuras,123.0,100
+108,Cuadrado,Estructuras,123.0,103
+109,sd,Estructuras,23.0,24
+110,Trapecio,Estructuras,123.0,23

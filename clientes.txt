@@ -1,7 +1,10 @@
 99999999,Cliente,General,Sin Dirección
-12345678,Pablo,,Jiron lima
+12345678,Curita mau Espinoza,,San miguel
 12345678911,Lus,,Jirón Mirones
 12456789,Luis,,Pablo
 13456782,Tulio,,test
 11223345,pepe,,avs
 12345670,juancho,,asc
+12347778,pepe,,asas
+09821345,Pabo,,Sapo
+19876543,Cura,,Sapo

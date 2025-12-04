@@ -252,7 +252,7 @@ public class FrmLogin extends javax.swing.JFrame {
         if (chkInvitado.isSelected()) {
             clave = "";
         } else if (clave.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor ingrese su CONTRASEÑA");
+            JOptionPane.showMessageDialog(this, "Por favor ingrese su contraseña");
             return;
         }
 

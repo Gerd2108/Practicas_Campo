@@ -282,11 +282,11 @@ public class FrmTrabajador extends javax.swing.JFrame {
 
         if (estado.equals("ENTRADA")) {
             JOptionPane.showMessageDialog(this,
-                    "Ya tienes una entrada registrada.\nDebes marcar SALIDA antes de entrar nuevamente.",
+                    "Ya tienes una entrada registrada.\nDebes marcar Saida antes de entrar nuevamente.",
                     "Acción Bloqueada", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        if (JOptionPane.showConfirmDialog(this, "¿Marcar ENTRADA ahora?", "Registrar Entrada", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+        if (JOptionPane.showConfirmDialog(this, "¿Marcar Entrada ahora?", "Registrar Entrada", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             sistema.registrarAsistencia(usuarioLogueado, "ENTRADA");
             sistema.guardarDatos();
 
@@ -329,19 +329,19 @@ public class FrmTrabajador extends javax.swing.JFrame {
 
         if (!estado.equals("ENTRADA")) {
             JOptionPane.showMessageDialog(this,
-                    "No tienes una entrada activa.\nDebes marcar ENTRADA primero.",
+                    "No tienes una entrada activa.\nDebes marcar Entrada primero.",
                     "Acción Bloqueada", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        if (JOptionPane.showConfirmDialog(this, "¿Marcar SALIDA ahora?", "Registrar Salida", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+        if (JOptionPane.showConfirmDialog(this, "¿Marcar Salida ahora?", "Registrar Salida", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             sistema.registrarAsistencia(usuarioLogueado, "SALIDA");
             sistema.guardarDatos();
 
             cargarHistorialAsistencia();
 
             JOptionPane.showMessageDialog(this,
-                    "Salida registrada. ¡Buen descanso!",
+                    "Salida registrada.",
                     "Registro Exitoso",
                     JOptionPane.INFORMATION_MESSAGE);
         }

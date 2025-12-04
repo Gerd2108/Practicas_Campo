@@ -6,7 +6,6 @@ package GUI;
 
 import clases.Sistema;
 import clases.Usuario;
-import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;

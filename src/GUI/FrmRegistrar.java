@@ -4,7 +4,8 @@
  */
 package GUI;
 
-import java.awt.HeadlessException;
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -106,7 +107,7 @@ public class FrmRegistrar extends javax.swing.JFrame {
             public void windowClosing(java.awt.event.WindowEvent e) {
                 int opcion = javax.swing.JOptionPane.showConfirmDialog(
                         null,
-                        "¿Deseas cerrar esta ventana sin guardar?", 
+                        "¿Deseas cerrar esta ventana?", 
                         "Cerrar Ventana",
                         javax.swing.JOptionPane.YES_NO_OPTION,
                         javax.swing.JOptionPane.QUESTION_MESSAGE
@@ -146,6 +147,7 @@ public class FrmRegistrar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registrar Usuario");
+        setIconImage(getIconImage());
         setResizable(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/persona.png"))); // NOI18N
@@ -388,6 +390,13 @@ public class FrmRegistrar extends javax.swing.JFrame {
                 new FrmRegistrar().setVisible(true);
             }
         });
+    }
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("media/logofinal.png"));
+
+        return retValue;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

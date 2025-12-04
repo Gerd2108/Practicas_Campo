@@ -62,7 +62,6 @@ public class FrmSecretaria extends javax.swing.JFrame {
                     int fila = jTable1.getSelectedRow();
                     if (fila != -1) {
                         try {
-                            // Obtenemos el ID de la columna 0
                             int idAlquiler = Integer.parseInt(jTable1.getValueAt(fila, 0).toString());
 
                             Alquiler alquiler = sistema.buscarAlquilerPorID(idAlquiler);
